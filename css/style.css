@@ -76,6 +76,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     margin-top: -200px;
+
 }
 
 .main p {
@@ -282,7 +283,7 @@ footer {
     line-height: 130%;
     font-family: var(--work);
     color: #2B3041;
-    margin: 0 36px 0 22px;
+    margin: 0 0 0 22px;
 }
 
 .total {
@@ -433,4 +434,139 @@ footer {
 
 .onevision-widget {
     z-index: 10000;
+}
+
+.radios {
+    display: flex !important;
+    gap: 30px !important;
+}
+
+.cart__sect {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    align-items: start;
+    justify-content: space-between;
+}
+
+@media (max-width: 1600px) {
+    .main {
+        margin-top: -100px;
+    }
+
+    .title img {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 1px;
+    }
+
+    section {
+        padding: 0px 150px 0 150px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .main {
+        margin-top: -50px;
+    }
+
+    .title {
+        padding-top: 50px;
+    }
+
+    section {
+        padding: 0px 70px 0 70px;
+    }
+
+    header {
+        padding: 20px 70px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .main p {
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main p {
+        font-size: 12px;
+    }
+
+    .main {
+        margin-top: 0px;
+    }
+
+    .title {
+        padding-top: 100px;
+    }
+
+    section {
+        padding: 0px 20px 0 20px;
+    }
+
+    header {
+        padding: 30px 20px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 20px 25px;
+        margin: 30px 0 0;
+    }
+
+    footer img {
+        max-width: 100px;
+        height: 33px;
+    }
+
+    .links {
+        gap: 25px;
+        justify-content: space-between;
+    }
+
+    .links .socials {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .products {
+        margin-top: 20px;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 240px));
+        justify-content: center;
+    }
+
+    .cart__body {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cart {
+        padding: 20px;
+    }
+
+    .send__checker {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cart__sect {
+        height: 75px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
 }

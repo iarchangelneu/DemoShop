@@ -53,14 +53,16 @@ const mask = IMask(element, maskOptions);
                 <div class="cart__img">
                     <img src="${item.imgSrc}" alt="">
                 </div>
-                <span class="name">${item.name}</span>
-                <div class="total">
-                    <div class="count">
-                        <img src="./img/minus.svg" alt="" onclick="decrementItem('${item.name}')">
-                        <small>${item.quantity}</small>
-                        <img src="./img/plus.svg" alt="" onclick="incrementItem('${item.name}')">
+                <div class="cart__sect">
+                    <span class="name">${item.name}</span>
+                    <div class="total">
+                        <div class="count">
+                            <img src="./img/minus.svg" alt="" onclick="decrementItem('${item.name}')">
+                            <small>${item.quantity}</small>
+                            <img src="./img/plus.svg" alt="" onclick="incrementItem('${item.name}')">
+                        </div>
+                        <span>${item.price * item.quantity} ₸</span>
                     </div>
-                    <span>${item.price * item.quantity} ₸</span>
                 </div>
             `;
 
