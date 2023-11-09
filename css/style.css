@@ -430,3 +430,7 @@ footer {
     font-family: var(--work);
     color: #616161;
 }
+
+.onevision-widget {
+    z-index: 10000;
+}

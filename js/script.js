@@ -1,3 +1,4 @@
+// Маска для номера телефона
 const element = document.getElementById('telInput');
 const maskOptions = {
   mask: '+{7}(000)000-00-00'
@@ -8,7 +9,6 @@ const mask = IMask(element, maskOptions);
 
 
 // Перключение варианта отправки чека
-
   const emailRadio = document.getElementById('email');
   const smsRadio = document.getElementById('sms');
   const emailInput = document.getElementById('emailInput');
@@ -29,18 +29,17 @@ const mask = IMask(element, maskOptions);
   });
 
 
-  // Работа с товаром
 
- 
+
+  // Работа с товаром
     const products = document.querySelectorAll('.product');
     const cartItems = document.querySelector('.cart__items');
     const totalItems = document.querySelector('.total__items');
     const cartItemCountElement = document.getElementById('cartItemCount');
 
-    // Инициализация корзины
     let cart = [];
+    let total = null;    
 
-    // Функция для обновления корзины
     function updateCart() {
         cartItems.innerHTML = '';
 
@@ -73,6 +72,8 @@ const mask = IMask(element, maskOptions);
         });
 
         totalItems.textContent = `Итого: ${totalPrice} ₸`;
+        total = totalPrice
+        console.log(total)
         updateCartCount();
     }
 
@@ -144,29 +145,37 @@ function addButtonHandler(event) {
         cartItemCountElement.textContent = cartItemCount.toString();
     }
 
-// Платежный Виджет
 
+
+// Платежный Виджет
 function openPaymentWidgetHandler() {
+    const api_key = '7fd711e7-136c-4a0e-96d8-1d5229fbf152'
+    const service_id = "93fa5d99-3dcb-47ae-9dfe-39b886f2247e"
+    const merchant_id = "2a217afd-21ed-4e34-bd74-f8f05185a7e1"
+    let amount = total
+    const emailValue = document.querySelector("#emailInput").value
+    const phoneValue = document.querySelector("#telInput").value.replace(/\D/g, '');
+    
     openPaymentWidget({
-      api_key: '7fd711e7-136c-4a0e-96d8-1d5229fbf152',
-      amount: 10,
+      api_key: api_key,
+      amount: amount,
       currency: "KZT",
       order_id: "1",
-      description: "1",
+      description: "DemoShop",
       payment_type: "pay",
       payment_method: "ecom",
       items: [{
-          merchant_id: "2a217afd-21ed-4e34-bd74-f8f05185a7e1",
-          service_id: "93fa5d99-3dcb-47ae-9dfe-39b886f2247e",
-          merchant_name: "Example",
-          name: "Example",
+          merchant_id: merchant_id,
+          service_id: service_id,
+          merchant_name: "1",
+          name: "1",
           quantity: 1,
-          amount_one_pcs: 10,
-          amount_sum: 10,
+          amount_one_pcs: amount,
+          amount_sum: amount,
       }],
-      user_id: "string",
-      email: "example@gmail.com",
-      phone: "example",
+      user_id: "1",
+      email: emailValue,
+      phone: phoneValue,
       success_url: "http://example.com",
       failure_url: "http://example.com",
       callback_url: "http://example.com",
@@ -178,7 +187,9 @@ function openPaymentWidgetHandler() {
       payment_gateway_host: "https://api.onevisionpay.com/",
       payment_widget_host: "https://widget.onevisionpay.com"
     }, 
-    onSuccess = (success) => {},
+    onSuccess = (success) => {
+        console.log
+    },
     onFail = (error) => {
         console.log("asd " + error)
     });
