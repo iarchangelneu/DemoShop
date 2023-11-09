@@ -181,7 +181,7 @@ function openPaymentWidgetHandler() {
       success_url: "http://example.com",
       failure_url: "http://example.com",
       callback_url: "http://example.com",
-      payment_lifetime: 0,
+      payment_lifetime: 300,
       create_recurrent_profile: false,
       recurrent_profile_lifetime: 0,
       lang: "ru",
